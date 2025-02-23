@@ -1,11 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Food Booking</title>
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-    <h1>Hello This is my first repo</h1>
+    <header>
+        <h1>Food Booking</h1>
+        <nav>
+            <a href="#menu">Menu</a>
+            <a href="#cart">Cart</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <section id="menu">
+        <h2>Menu</h2>
+        <div class="menu-item">
+            <h3>Pizza</h3>
+            <p>Price: $10</p>
+            <button onclick="addToCart('Pizza', 10)">Add to Cart</button>
+        </div>
+        <div class="menu-item">
+            <h3>Burger</h3>
+            <p>Price: $8</p>
+            <button onclick="addToCart('Burger', 8)">Add to Cart</button>
+        </div>
+        <div class="menu-item">
+            <h3>Pasta</h3>
+            <p>Price: $12</p>
+            <button onclick="addToCart('Pasta', 12)">Add to Cart</button>
+        </div>
+    </section>
+
+    <section id="cart">
+        <h2>Your Cart</h2>
+        <ul id="cart-items"></ul>
+        <p>Total: $<span id="total">0</span></p>
+    </section>
+
+    <script src="script.js"></script>
 </body>
+
 </html>
