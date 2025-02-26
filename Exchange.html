@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Exchange Platform</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #e3f2fd;
+        }
+
+        header {
+            background: #1565c0;
+            color: white;
+            padding: 15px;
+            text-align: center;
+            font-size: 24px;
+        }
+
+        nav {
+            background: #0d47a1;
+            padding: 10px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 18px;
+        }
+
+        .container {
+            width: 80%;
+            margin: 20px auto;
+            background: white;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+
+        .search-bar {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .search-bar input {
+            padding: 10px;
+            width: 50%;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .car-listing {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .car {
+            background: #ffcc80;
+            padding: 15px;
+            margin: 10px;
+            width: 30%;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .car img {
+            width: 100%;
+            border-radius: 5px;
+        }
+
+        .contact-form {
+            text-align: center;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 80%;
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        footer {
+            background: #1565c0;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Car Exchange Platform</h1>
+    </header>
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#available-cars">Available Cars</a>
+        <a href="#exchange-form">Exchange Your Car</a>
+        <a href="#contact">Contact</a>
+    </nav>
+    <div class="container" id="home">
+        <h2>Welcome to Car Exchange Platform</h2>
+        <p>Find the best deals to exchange your car with a hassle-free process. We provide a trusted and secure platform
+            for car owners to sell, buy, or trade vehicles.</p>
+        <ul>
+            <li>Wide variety of cars available</li>
+            <li>Trusted by thousands of users</li>
+            <li>Quick and easy exchange process</li>
+        </ul>
+    </div>
+    <div class="container" id="available-cars">
+        <h2>Available Cars for Exchange</h2>
+        <div class="search-bar">
+            <input type="text" id="search-input" placeholder="Search for a car...">
+        </div>
+        <div class="car-listing" id="car-listing"></div>
+    </div>
+    <footer>
+        <p>&copy; 2025 Car Exchange Platform. All Rights Reserved.</p>
+    </footer>
+    <script>
+        const carListing = document.getElementById("car-listing");
+        const searchInput = document.getElementById("search-input");
+        const cars = [
+            { name: "Toyota Corolla 2021", year: "2021", price: "$20,000", image: "toyota-corolla.avif" },
+            { name: "Honda Civic 2020", year: "2020", price: "$18,500", image: "honda civic 2020.jpg" },
+            { name: "Ford Mustang 2019", year: "2019", price: "$25,000", image: "Ford.jpg" },
+            { name: "Chevrolet Camaro 2022", year: "2022", price: "$30,000", image: "chevrolet.jpg" },
+            { name: "BMW 3 Series 2021", year: "2021", price: "$35,000", image: "BMW.jpg" },
+            { name: "Mercedes-Benz C-Class 2020", year: "2020", price: "$40,000", image: "mercedes.jpg" }
+        ];
+        function displayCars(filteredCars = cars) {
+            carListing.innerHTML = "";
+            filteredCars.forEach(car => {
+                const carDiv = document.createElement("div");
+                carDiv.classList.add("car");
+                carDiv.innerHTML = `<img src="${car.image}" alt="${car.name}"><h3>${car.name}</h3><p>Year: ${car.year}</p><p>Price: ${car.price}</p>`;
+                carListing.appendChild(carDiv);
+            });
+        }
+        searchInput.addEventListener("input", function () {
+            const searchTerm = searchInput.value.toLowerCase();
+            const filteredCars = cars.filter(car => car.name.toLowerCase().includes(searchTerm));
+            displayCars(filteredCars);
+        });
+        displayCars();
+    </script>
+</body>
+
+</html>
