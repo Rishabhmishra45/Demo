@@ -4,14 +4,15 @@ body {
     margin: 0;
     padding: 0;
     text-align: center;
-    background-color: #f8f9fa;
+    background-color: #007bff; /* Blue background */
+    color: white;
 }
 
 /* Header */
 header {
-    background-color: #ff5733;
-    padding: 15px;
-    color: white;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 20px;
+    border-radius: 10px;
 }
 
 nav a {
@@ -26,17 +27,29 @@ nav a {
     padding: 20px;
 }
 
+/* Menu Item Styling */
 .menu-item {
     background: white;
     padding: 15px;
     margin: 10px auto;
     width: 50%;
     border-radius: 8px;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    color: black;
 }
 
+/* Food Image Styling */
+.menu-item img {
+    width: 350px; /* Set a fixed width */
+    height: 300px; /* Set a fixed height */
+    border-radius: 10px;
+    object-fit: cover; /* Crop images to fit perfectly */
+}
+
+/* Button Styling */
 button {
-    background: #28a745;
+    background: #ff6600;
     color: white;
     border: none;
     padding: 10px;
@@ -45,13 +58,17 @@ button {
 }
 
 button:hover {
-    background: #218838;
+    background: #ff4500;
 }
 
 /* Cart Section */
 #cart {
     padding: 20px;
-    background: #e9ecef;
+    background: white;
+    color: black;
+    border-radius: 10px;
+    width: 80%;
+    margin: auto;
 }
 
 #cart-items {
@@ -60,10 +77,14 @@ button:hover {
 }
 
 #checkout {
-    background: #007bff;
+    background: #28a745;
+    color: white;
     margin-top: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
 }
 
 #checkout:hover {
-    background: #0056b3;
+    background: #218838;
 }
